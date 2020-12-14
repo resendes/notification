@@ -6,11 +6,11 @@ import com.resendes.adapters.repository.entities.NotificationSchedulingEntity;
 import com.resendes.usecases.port.NotificationPersistence;
 
 @Singleton
-public class ScheduleNotification {
+public class CreateSchedulingNotification {
 
     private NotificationPersistence notificationPersistence;
 
-    public ScheduleNotification(NotificationPersistence notificationPersistence) {
+    public CreateSchedulingNotification(NotificationPersistence notificationPersistence) {
         this.notificationPersistence = notificationPersistence;
     }
 

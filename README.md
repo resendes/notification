@@ -1,11 +1,39 @@
-## Feature jdbc-hikari documentation
+## Notification service
 
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
+O serviço foi construído utilizando o framework [micronaut](https://micronaut.io/)
 
-## Feature http-client documentation
+## Como executar o aplicação
 
-- [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+#### Build
 
-## Feature testcontainers documentation
+```
+mvn clean install
+```
 
-- [https://www.testcontainers.org/](https://www.testcontainers.org/)
+#### Run
+
+Através do arquivo stack.yml é possível executar a aplicação.
+
+```
+docker-compose -f stack.yml up --build
+```
+
+## Recursos disponíveis
+
+- Cadastrar um agendamento de notificação
+
+```
+curl --header "Content-Type: application/json"   --request POST   --data '{"recipient":"anderson", "message":"Oi", "type":"EMAIL", "schedulingDate":"2007-12-03T10:15:30+01:00"}'   http://localhost:8080/notifications
+```
+
+- Buscar agendamento por ID
+
+```
+curl -X GET http://localhost:8080/notifications/{id}
+```
+
+- Remover agendamento
+
+```
+curl -X DELETE http://localhost:8080/notifications/{id}
+```

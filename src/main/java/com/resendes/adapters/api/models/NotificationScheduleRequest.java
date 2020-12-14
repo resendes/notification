@@ -2,6 +2,9 @@ package com.resendes.adapters.api.models;
 
 import java.time.OffsetDateTime;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import com.resendes.adapters.repository.entities.NotificationSchedulingEntity;
 import com.resendes.adapters.repository.entities.NotificationStatusEntity;
 import com.resendes.adapters.repository.entities.NotificationTypeEntity;
@@ -11,9 +14,16 @@ import io.micronaut.core.annotation.Introspected;
 @Introspected
 public class NotificationScheduleRequest {
 
+    @NotNull
     private OffsetDateTime schedulingDate;
+
+    @NotBlank
     private String recipient;
+
+    @NotBlank
     private String message;
+
+    @NotNull
     private NotificationType type;
 
     public OffsetDateTime getSchedulingDate() {
